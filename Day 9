@@ -1,0 +1,31 @@
+Problem 1211
+select 
+query_name,
+round (avg(rating/position),2) as quality, 
+round (sum(case when rating <3 then 1 else 0 end)*100/count(*),2)    as poor_query_percentage
+
+from 
+Queries 
+where query_name is not null
+group by query_name 
+
+Problem 1251
+select
+p.product_id,
+ifnull(round((sum(p.price * u.units))/sum(u.units),2),0) as average_price
+from 
+Prices p left join UnitsSold u
+
+on p.product_id =u.product_id and
+u.purchase_date BETWEEN start_date AND end_date
+
+group by  p.product_id
+
+Problem 1280
+
+SELECT s.student_id, s.student_name, sub.subject_name, COUNT(e.student_id) AS attended_exams
+FROM Students s
+CROSS JOIN Subjects sub
+LEFT JOIN Examinations e ON s.student_id = e.student_id AND sub.subject_name = e.subject_name
+GROUP BY s.student_id, s.student_name, sub.subject_name
+ORDER BY s.student_id, sub.subject_name;
