@@ -85,5 +85,14 @@ from
 Employees
 order by employee_id
 
+Problem 1890:
+
+select 
+user_id , max(time_stamp) as last_stamp
+from
+Logins 
+where time_stamp like '2020%'
+group by user_id
+
 
 
