@@ -1,4 +1,4 @@
-Problem 1741
+Problem:1741
 
 select event_day as day, emp_id, sum(out_time - in_time) as total_time 
 
@@ -8,7 +8,7 @@ Employees
 
 group by emp_id, event_day
 
-Problem 1757
+Problem: 1757
 
 select product_id
 
@@ -17,4 +17,21 @@ Products
 
 where low_fats='Y' and recyclable ='Y'
 
+
+Problem: 1789
+
+select employee_id, department_id
+
+from 
+Employee
+where 
+primary_flag='Y'
+
+Union 
+
+select employee_id, department_id
+from Employee
+group by employee_id
+having 
+count(employee_id)=1
 
