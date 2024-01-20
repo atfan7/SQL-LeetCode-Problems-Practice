@@ -1,0 +1,37 @@
+Problem 1581
+
+select v.customer_id , count(*) as count_no_trans
+
+from Visits v  left join Transactions t
+
+on v.visit_id = t.visit_id 
+
+where t.visit_id is Null
+
+group by customer_id
+
+
+Problem 1587
+
+select
+u.name,
+
+sum(T.amount) as balance
+from 
+Users u right  join Transactions T on
+u.account =T.account
+ 
+group by u.account 
+having sum(T.amount)> 10000
+
+
+Problem 1633
+
+select distinct contest_id,
+round((count(distinct user_id)*100)/ (select count(distinct user_id) from Users),2) as percentage
+
+from Register
+
+
+group by contest_id
+order by percentage desc,contest_id asc
