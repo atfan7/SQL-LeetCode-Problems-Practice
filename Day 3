@@ -1,0 +1,31 @@
+Problem 511
+
+select distinct player_id ,min(event_date) as first_login
+
+from
+Activity 
+group by player_id
+
+Problem 577
+select e.name as name , b.bonus as bonus
+
+
+from Employee e left join Bonus b 
+on e.empId=b.empId
+where bonus<1000 or bonus is null
+
+Problem 584
+
+select name 
+
+from 
+Customer 
+
+where id not in 
+
+(
+
+select id
+from Customer 
+where referee_id=2
+)
