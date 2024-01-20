@@ -1,0 +1,29 @@
+Problem 620
+
+select
+id,movie,description,rating
+from 
+Cinema 
+where id%2 !=0 and description not like "%boring%"
+order by rating desc
+
+Problem 627
+
+Update salary set sex =
+(
+case 
+when sex='f'
+then 'm'
+else 'f' end)
+
+
+
+Problem 1050
+
+
+select
+actor_id,director_id
+from 
+ActorDirector
+group by actor_id,director_id
+having count(*) >=3
