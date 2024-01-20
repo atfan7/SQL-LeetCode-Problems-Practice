@@ -7,3 +7,14 @@ from
 Employees 
 
 group by emp_id, event_day
+
+Problem 1757
+
+select product_id
+
+from 
+Products 
+
+where low_fats='Y' and recyclable ='Y'
+
+
