@@ -1,0 +1,29 @@
+Problem 1484
+
+select 
+sell_date,
+
+count(distinct product) as num_sold,
+group_concat(distinct product order by product) as products
+
+
+from
+Activities 
+group by sell_date
+order by sell_date
+
+Problem 1517
+
+SELECT *
+FROM Users
+WHERE mail REGEXP '^[A-Za-z][A-Za-z0-9_\.\-]*@leetcode(\\?com)?\\.com$';
+
+
+Problem 1527
+
+select 
+patient_id,patient_name,conditions
+
+from 
+Patients 
+where conditions like "DIAB1%" or conditions like "% DIAB1%"
