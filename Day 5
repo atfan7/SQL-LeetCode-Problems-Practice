@@ -1,0 +1,51 @@
+Problem 607
+
+select s.name
+from SalesPerson s
+where s.name not in
+(
+select s.name
+
+from 
+
+SalesPerson s left join Orders o on 
+s.sales_id=o.sales_id
+
+left join Company c on
+o.com_id=c.com_id
+
+where c.name ='RED')
+
+Problem 610
+
+select x,y,z,
+
+
+
+ 
+case 
+when x+y>z and y+z>x and z+x>y
+then 'Yes'
+
+else 'No'
+
+end as 'triangle'
+
+from Triangle
+
+
+Problem 619
+
+select max(num) as num
+from (
+select num
+
+
+from 
+
+MyNumbers
+group by num
+having count(*)=1
+order by num desc
+) as single_numbers
+
