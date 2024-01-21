@@ -22,5 +22,27 @@ where e.name is null
 
 order by employee_id
 
+PROBLEM 1978:
+
+select
+employee_id
+
+from 
+
+Employees 
+
+where salary < 30000 and 
+manager_id not in (Select employee_id from Employees)
+
+order by employee_id 
+
+PROBLMEM 2365 :
+
+Select 
+teacher_id,
+COUNT(distinct subject_id) as cnt
+
+from Teacher
+group by teacher_id
 
 
