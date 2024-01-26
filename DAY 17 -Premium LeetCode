@@ -1,0 +1,12 @@
+PROBLEM 512:
+
+select distinct
+
+player_id,
+
+First_value(device_id) over(partition by player_id order by event_date) as device_id 
+
+from 
+Activity
+
+
