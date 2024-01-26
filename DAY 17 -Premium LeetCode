@@ -9,4 +9,16 @@ First_value(device_id) over(partition by player_id order by event_date) as devic
 from 
 Activity
 
+PROBLEM 597:
+
+select ifnull (round(
+(select count(*) from 
+(
+select distinct requester_id, accepter_id from RequestAccepted) as T1)
+
+/
+
+(select count(*) from 
+(
+select distinct sender_id, send_to_id from FriendRequest) as T2),2),0.00) as accept_rate
 
