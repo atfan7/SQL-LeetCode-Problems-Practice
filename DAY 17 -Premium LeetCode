@@ -22,3 +22,19 @@ select distinct requester_id, accepter_id from RequestAccepted) as T1)
 (
 select distinct sender_id, send_to_id from FriendRequest) as T2),2),0.00) as accept_rate
 
+
+PROBLEM 603:
+select T1.seat_id from
+(
+select * , 
+lead(free) over(order by seat_id) as 'leading_seat',lag(free) over(order by seat_id) as 'lagging_seat'
+from Cinema)
+
+
+as T1
+
+where free =1 and leading_seat=1
+
+or free=1 and lagging_seat=1
+
+order by seat_id
