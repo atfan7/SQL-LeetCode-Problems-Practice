@@ -23,3 +23,18 @@ Sales
 
 group by product_id
 
+
+PROBLEM 1076:::
+
+select project_id 
+from (
+select 
+
+*, Rank() over(order by count(employee_id) desc) as rk
+
+
+from Project 
+group by project_id) t
+
+where t.rk=1
+
