@@ -22,3 +22,12 @@ on P.product_id =S.product_id
 group by buyer_id 
 
 having sum(product_name ='S8')>=1 and sum(product_name ='iPhone')=0
+
+PROBLEM : 1113
+select 
+extra as report_reason ,count(distinct post_id) as report_count
+from Actions
+
+where action_date = '2019-07-04' and action = 'report'
+
+group by extra
