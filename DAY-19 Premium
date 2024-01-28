@@ -1,0 +1,11 @@
+PROBLEM 1082:
+
+select seller_id from (
+select 
+
+seller_id, rank() over(order by sum(price) desc) as r
+
+from Sales
+group by seller_id) as t
+
+where t.r=1
