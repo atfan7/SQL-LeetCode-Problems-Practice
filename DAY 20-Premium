@@ -6,3 +6,20 @@ IFNULL(ROUND((COUNT(DISTINCT session_id)/COUNT(DISTINCT user_id)),2),0.00) AS av
 FROM Activity
 
 WHERE activity_date BETWEEN '2019-06-28' AND '2019-07-27'
+
+PROBLEM 1173::
+
+select round (sum(new='immediate')/count(new) *100,2) as immediate_percentage 
+from (
+select *,
+
+case when 
+
+order_date =customer_pref_delivery_date 
+then 'immediate'
+
+else 'scheduled'
+end as new 
+
+from
+Delivery) as t
