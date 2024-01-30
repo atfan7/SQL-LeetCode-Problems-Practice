@@ -1,0 +1,43 @@
+PROBLEM 1294::
+
+select 
+
+T.country_name, 
+
+case
+
+when
+avg(weather_state)<=15
+then 'Cold'
+
+when avg(weather_state)>=25
+then 'Hot'
+
+else 
+'Warm' end as weather_type
+
+from (
+
+
+select 
+c.country_name,c.country_id, w.weather_state,w.day
+from
+
+Countries c join Weather w
+on c.country_id=w.country_id
+
+and day like '2019-11-%'
+) as T
+group by T.country_id
+
+
+PROBLEM 1303::
+
+select 
+employee_id, 
+
+count(employee_id) over(partition by team_id order by team_id) as team_size
+
+from
+
+Employee
