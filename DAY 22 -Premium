@@ -19,3 +19,45 @@ from
 
 Queries q left join NPV n 
 on q.id =n.id and q.year =n.year
+
+
+PROBLEM 1435 ::
+
+select 
+
+'[0-5>' as bin, sum(case when duration between 0 and 299 then 1 else 0 end) as total
+from 
+Sessions
+
+Union
+
+select 
+
+'[5-10>' as bin, sum(case when duration between 300 and 599 then 1 else 0 end) as total
+from 
+Sessions
+
+Union
+
+select 
+
+'[10-15>' as bin, sum(case when duration between 600 and 899 then 1 else 0 end) as total
+from 
+Sessions
+
+Union 
+
+
+select 
+
+'15 or more' as bin, sum(case when duration>=900 then 1 else 0 end) as total
+from 
+Sessions
+
+Union
+
+select 
+
+'[0-5>' as bin, sum(case when duration between 0 and 299 then 1 else 0 end) as total
+from 
+Sessions
