@@ -35,3 +35,15 @@ select c.customer_id,cu.name
 From CTE2 as c
 join Customers cu
 on c.customer_id =cu.customer_id
+
+PROBLEM 1543::
+
+select
+trim(lower(product_name)) as product_name,
+left(sale_date,7) as sale_date,
+count(sale_id) as total
+
+from 
+Sales
+group by trim(lower(product_name)),left(sale_date,7)
+order by product_name ,sale_date
