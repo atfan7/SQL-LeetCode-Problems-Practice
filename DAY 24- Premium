@@ -1,0 +1,10 @@
+PROBLEM :: 1565
+
+select 
+
+left(order_date,7) as month, count( distinct order_id) as order_count, count( distinct customer_id) as customer_count
+from
+Orders
+where invoice >20
+group by year(order_date),month(order_date)
+order by year(order_date),month(order_date)
