@@ -11,3 +11,16 @@ where a.student_name != b.student_name and b.student_name !=c.student_name and c
 
 
 and a.student_id!= b.student_id and b.student_id !=c.student_id and c.student_id!=a.student_id
+
+
+PROBLEM 1677:::
+
+select 
+
+p.name as name  , ifnull (sum(rest),0) as rest, ifnull (sum(paid),0 )as paid, ifnull(sum(canceled),0) as canceled , ifnull(sum(refunded),0) as refunded 
+FROM 
+
+Product p left join Invoice i
+on p.product_id= i.product_id
+group by p.product_id 
+order by p.name 
