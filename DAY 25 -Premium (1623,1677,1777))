@@ -24,3 +24,23 @@ Product p left join Invoice i
 on p.product_id= i.product_id
 group by p.product_id 
 order by p.name 
+
+PROBLEM 1777::
+
+select product_id , sum(store1) as store1, sum(store2) as store2, sum(store3) as store3
+
+from (
+
+SELECT 
+
+product_id ,
+
+(select price where store ='store1') as store1 ,
+
+(select price where store ='store2') as store2 ,
+
+(select price where store ='store3') as store3
+
+from Products
+) as t
+group by product_id
