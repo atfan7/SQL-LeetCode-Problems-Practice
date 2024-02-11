@@ -23,3 +23,10 @@ Customers
 where year ='2021' 
 group by customer_id
 having sum(revenue)>0
+
+PROBLEM 1853:::
+
+select 
+concat (dayname(day),', ',monthname(day),' ',day(day),', ',year(day)) as day
+from
+Days
