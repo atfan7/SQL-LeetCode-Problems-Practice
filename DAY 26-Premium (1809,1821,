@@ -12,4 +12,14 @@ Playback p left join Ads a
 on p.customer_id= a.customer_id 
 where a.timestamp between p.start_time and p.end_time)
 
+PROBLEM 1821::
 
+select
+
+customer_id
+from 
+
+Customers
+where year ='2021' 
+group by customer_id
+having sum(revenue)>0
