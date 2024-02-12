@@ -11,3 +11,19 @@ distinct user_id
 from 
 cte 
 where win between time_stamp and date_add(time_stamp,interval 24 hour)
+
+
+PROBLEM 2026 ::
+
+with cte as (
+select 
+*, (likes/(likes +dislikes)) as per 
+from 
+
+Problems )
+
+select
+problem_id
+from 
+cte where per <0.6
+order by problem_id
