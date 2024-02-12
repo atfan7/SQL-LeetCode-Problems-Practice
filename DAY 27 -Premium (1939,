@@ -1,0 +1,13 @@
+PROBLEM 1939 :::
+
+with cte as (select 
+*, lead(time_stamp) over(partition by user_id order by time_stamp) as win 
+from 
+Confirmations
+)
+
+select 
+distinct user_id
+from 
+cte 
+where win between time_stamp and date_add(time_stamp,interval 24 hour)
