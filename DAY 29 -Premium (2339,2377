@@ -9,3 +9,16 @@ from
 Teams t1 cross join Teams t2
 where t1.team_name != t2.team_name 
 order by t1.team_name desc, t2.team_name desc
+
+
+PROBLEM 2377:::
+
+select 
+*
+from 
+Olympic 
+
+order by gold_medals desc , silver_medals desc,bronze_medals desc ,country asc
+
+
+PROBLEM 
