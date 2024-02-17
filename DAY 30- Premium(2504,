@@ -10,4 +10,10 @@ from
 Person 
 order by person_id desc
 
+PROBLEM 2668:::
 
+select emp_id, firstname, lastname, max(salary) as salary, department_id
+
+from Salary
+group by emp_id
+order by emp_id asc
