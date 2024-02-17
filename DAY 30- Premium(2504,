@@ -11,9 +11,21 @@ Person
 order by person_id desc
 
 PROBLEM 2668:::
+Solution 1:
 
 select emp_id, firstname, lastname, max(salary) as salary, department_id
 
 from Salary
 group by emp_id
+order by emp_id asc
+
+Solution 2:
+
+select distinct emp_id,
+firstname,
+lastname, 
+max(salary) over(partition by emp_id) as salary,
+department_id
+
+from Salary
 order by emp_id asc
