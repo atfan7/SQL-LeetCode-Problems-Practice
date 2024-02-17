@@ -7,3 +7,14 @@ from
 Bikes 
 order by end_time desc
 
+PROBLEM 2837:::
+
+select 
+u.user_id ,u.name ,ifnull(sum(r.distance),0) as 'traveled distance'
+
+from 
+
+Users u left join Rides r
+on u.user_id =r.user_id
+group by user_id 
+order by user_id
