@@ -29,3 +29,15 @@ department_id
 
 from Salary
 order by emp_id asc
+
+PROBLEM 2669:::
+
+select artist,
+count(*) as occurrences
+from 
+
+Spotify 
+
+group by artist
+order by occurrences desc, artist asc
+
