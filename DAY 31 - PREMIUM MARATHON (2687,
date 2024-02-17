@@ -1,0 +1,9 @@
+PROBLEM 2687 :::
+
+select
+distinct bike_number,
+max(end_time) over(partition by bike_number) as end_time 
+from 
+Bikes 
+order by end_time desc
+
