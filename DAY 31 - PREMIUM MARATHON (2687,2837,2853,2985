@@ -31,3 +31,16 @@ Salaries
 where department='Engineering' or department ='Marketing'
 group by department 
 ) as t
+
+PROBLEM 2985:::
+select 
+
+round(sum(orde)/sum(order_occurrences),2) as average_items_per_order 
+from (
+
+select
+
+*,(item_count*order_occurrences) as orde
+
+from
+Orders) as t
