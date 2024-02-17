@@ -56,6 +56,17 @@ group by city
 having avg(price)> (select avg(price) from Listings)
 order by city asc 
 
+PROBLEM 2990:::
+
+select
+user_id
+
+from 
+Loans
+group by user_id
+
+having sum(loan_type ='Refinance')>=1 and  sum(loan_type ='Mortgage')>=1
+order by user_id
 
 
 
