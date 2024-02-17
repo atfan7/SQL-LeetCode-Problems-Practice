@@ -18,3 +18,16 @@ Users u left join Rides r
 on u.user_id =r.user_id
 group by user_id 
 order by user_id
+
+PROBEM 2853 :::
+select 
+max(s) -min(s) as salary_difference 
+from (
+
+select 
+department,max(salary) as s
+from 
+Salaries 
+where department='Engineering' or department ='Marketing'
+group by department 
+) as t
